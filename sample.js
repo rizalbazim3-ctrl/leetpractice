@@ -1,24 +1,8 @@
 /**
- * @param {number[]} nums
+ * @param {number} num
  * @return {number}
  */
-var majorityElement = function(nums) {
-    let a = [...new Set(nums.filter((value)=> nums.indexOf(value) !== nums.lastIndexOf(value)))]
-    if(a.length === 1){
-        return a[0]
-    }
-    let b = []
-    for(let i=0; i<a.length; i++){
-        let count = 0
-        for(let j=0; j<nums.length; j++ ){
-            if(a[i] === nums[j] ){
-                count++
-            }
-        }
-        b.push(count)
-    }
-    let c = b.indexOf(Math.max(...b))
-    console.log(a)
-    return a[c]
+var splitNum = function(num) {
+    Math.floor(num[0]/10)
 };
-console.log(majorityElement([2]))
+console.log(majorityElement([249]))
