@@ -1,18 +1,26 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
+ * @param {number[]} heights
+ * @return {number}
  */
-/**
- * @param {ListNode} head
- * @return {ListNode}
- */
-var deleteDuplicates = function(head) {
-    const a = [...new Set(head)]
+var heightChecker = function(heights) {
+    let b = []
+    let i = 0
+    while(b.length !== heights.length){
+        
+        b.push(heights[i])
+        i++
+    }
+    b.sort((a,b)=>a-b) 
+    let count = 0
+    for(let i = 0; i<heights.length; i++){
+        
+        if(heights[i] !== b[i]){
+            count++
+        }
 
-    return a
+    }
+    return  count
+    
 };
 
-console.log(deleteDuplicates([1,1,2,3,3]))
+console.log(heightChecker([1,1,3,4,2]))
