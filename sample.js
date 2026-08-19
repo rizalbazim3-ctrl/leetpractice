@@ -1,26 +1,18 @@
 /**
- * @param {number[]} heights
- * @return {number}
+ * @param {Promise} promise1
+ * @param {Promise} promise2
+ * @return {Promise}
  */
-var heightChecker = function(heights) {
-    let b = []
-    let i = 0
-    while(b.length !== heights.length){
-        
-        b.push(heights[i])
-        i++
-    }
-    b.sort((a,b)=>a-b) 
-    let count = 0
-    for(let i = 0; i<heights.length; i++){
-        
-        if(heights[i] !== b[i]){
-            count++
-        }
+var addTwoPromises = async function(promise1, promise2) {
 
-    }
-    return  count
-    
+    let data = await promise1
+    let data1 = await promise2
+
+        return data+data1
+
 };
-
-console.log(heightChecker([1,1,3,4,2]))
+console.log(addTwoPromises(Promise.resolve(2), Promise.resolve(2)))
+/**
+ * 
+ *   .then(console.log); // 4
+ */
