@@ -18,28 +18,23 @@ var canConstruct = function(ransomNote, magazine) {
     let ac = 0;
     let bc = 0;
   
-    let a = [];
-    for(let i =0; i<ransomNote.length; i++){
-        if(magazine.includes(ransomNote[i])){
-            a.push(ransomNote[i])
-        }else{
-            return false;
-        }
-    }
-    if(a.length === 0 || ransomNote.length > magazine.length) return false;
+   
+    if( ransomNote.length > magazine.length) return false;
 
-    for(let i = 0; i<a.length; i++){
-        if(magazine.includes(a[i])){
+    for(let i = 0; i<ransomNote.length; i++){
+        if(!magazine.includes(ransomNote[i])){
+            return false
+        }
+        if(magazine.includes(ransomNote[i])){
             ac=0;
             bc=0;
-            let d = magazine.indexOf(a[i]);
+            let d = magazine.indexOf(ransomNote[i]);
             for(let j=0; j<magazine.length; j++){
                 if(magazine[d] === magazine[j]){
                     bc++;
                 }
-                if(a[i] === ransomNote[j]){
+                if(ransomNote[i] === ransomNote[j]){
                     ac++;
-                    console.log(a[i] + ac)
                 }
             }
         }
